@@ -5,4 +5,4 @@ apilist={
 
 from .api import *
 
-__all__ = ['getme','sendmessage']
+__all__ = ['getme','sendmessage','getPrivateChat']
