@@ -13,7 +13,7 @@ def getme(token:str) ->requests.models.Response:
     r=requests.get(apiurl+token+apilist['getme'])
     return r
 
-def sendmessage(token='',chatid=0,biaoti="标题",ik=[[{"text":"下一页","callback_data":"{\"type\":\"next\",\"index\":2,\"msg\":\"114514\"}"}]],text='文本',biaoticolor='ffe4e4',type="card",shade=['ff764a','ffb39aff'],backgroundColor='ddeeff00',getjson=False) -> requests.models.Response|str:
+def sendmessage(token='',chatid=0,biaoti="标题",add_Key=False,ik=[[{"text":"下一页","callback_data":"{\"type\":\"next\",\"index\":2,\"msg\":\"114514\"}"}]],text='文本',biaoticolor='ffe4e4',type="card",shade=['ff764a','ffb39aff'],backgroundColor='ddeeff00',getjson=False) -> requests.models.Response|str:
     """发送消息
 
     Args:
@@ -27,6 +27,7 @@ def sendmessage(token='',chatid=0,biaoti="标题",ik=[[{"text":"下一页","call
         shade (list, optional): 标题背景颜色，如果配置两项就是渐变色. Defaults to ['ff764a','ffb39aff'].
         backgroundColor (str, optional): 标题文本颜色. Defaults to 'ddeeff'.
         getjson (bool, optional): 设置为True就是只返回编码完成的json，不请求. Defaults to False.
+        add_Key (bool, optional): 是否添加键盘. Defaults to False.
 
     Returns:
         requests.models.Response|str: requests请求对象|编码完成的json
@@ -46,15 +47,20 @@ def sendmessage(token='',chatid=0,biaoti="标题",ik=[[{"text":"下一页","call
     else:
         text1=text
         pm=None
-    print(text1)
-    payload = json.dumps({
+    #print(text1)
+    d={
     "chat_id": int(chatid),
     "text": text1,
-    "parse_mode": pm,
-    "reply_markup": {
-        "inline_keyboard": ik
+    "parse_mode": pm
     }
-    })
+    if add_Key:
+        #添加"reply_markup": {
+        #"inline_keyboard": ik
+    #}  
+        d['reply_markup']={
+            "inline_keyboard": ik
+        }
+    payload=json.dumps(d)
     if getjson==False:
         headers = {
         'Content-Type': 'application/json'

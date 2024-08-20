@@ -6,7 +6,9 @@
 import fanbookbotapi
 
 print(fanbookbotapi.getme('123').text)
-```
+```  
+
+**1.2.2更改：发送消息函数添加参数add_Key，为了防止不添加键盘时消息出现边框，如果你需要添加键盘，请将其设置为True，否则不用管**  
 
 # 支持的api
 
@@ -31,6 +33,7 @@ Args:
     shade (list, optional): 标题背景颜色，如果配置两项就是渐变色. Defaults to ['ff764a','ffb39aff'].
     backgroundColor (str, optional): 标题文本颜色. Defaults to 'ddeeff'.
     getjson (bool, optional): 设置为True就是只返回编码完成的json，不请求. Defaults to False.
+    add_Key (bool, optional): 是否添加键盘. Defaults to False.
 Returns:
     requests.models.Response|str: requests请求对象|编码完成的json
     token (str): botToken
