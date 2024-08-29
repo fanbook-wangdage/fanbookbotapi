@@ -2,12 +2,13 @@ from setuptools import setup, find_packages
 
 setup(
     name='fanbookbotapi',
-    version='1.2.2',
+    version='1.2.4',
     packages=find_packages(),
     install_requires=[
         # 这里列出你的依赖包，例如：
         # 'numpy',
-        'requests'
+        'requests',
+        'coloredlogs'
     ],
     author='wangdage',
     author_email='fanbookwdg1122@outlook.com',

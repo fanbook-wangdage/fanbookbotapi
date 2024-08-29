@@ -4,5 +4,7 @@ apilist={
 }
 
 from .api import *
+from .userapi import *
+from .get_signature import *
 
-__all__ = ['getme','sendmessage','getPrivateChat']
+__all__ = ['getme','sendmessage','getPrivateChat','send_user_message','get_signature']

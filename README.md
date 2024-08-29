@@ -12,6 +12,8 @@ print(fanbookbotapi.getme('123').text)
 
 # 支持的api
 
+## bot api
+
 - getme(token='bot token')
 
 ```
@@ -51,4 +53,30 @@ Returns:
     requests.models.Response: requests请求对象
     {"ok":true,"result":{"id":510639729457618944,"guild_id":0,"type":"private","channel_type":3}}
     返回中，id代表频道id
+```
+
+## 用户api
+
+> 用户api仅供学习研究使用，使用造成的后果与作者无关，严禁违法、违规使用
+
+- send_user_message()
+
+```
+请求代码由WrunDorry提供
+使用userapi发送消息
+
+    Args:
+        user_token (str, optional): 用户token和bot token二选一
+        bot_token (str, optional): bot token和user token二选一
+        text (str, optional): 消息体. Defaults to '{\"type\":\"text\",\"text\":\"test\",\"contentType\":0}'.
+        decs (str, optional): 消息预览文本. Defaults to 'test'.
+        channel_id (str, optional): 频道id. Defaults to '123456'.
+        guild_id (str, optional): 服务器id. Defaults to '123456'.
+        key (str, optional): api_key，默认留空. Defaults to ''.
+        secret (str, optional): api_secret，默认留空. Defaults to ''.
+        transaction (str, optional): 请求的唯一id，一般调试使用. Defaults to '73460be6-e295-4828-8750-01022533b9f0'.
+        log_level (str, optional): 日志等级. Defaults to 'DEBUG'.
+
+    Returns:
+        requests.models.Response: 返回响应
 ```
