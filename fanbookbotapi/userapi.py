@@ -2,6 +2,10 @@ import json
 import time
 import uuid
 import requests
+import logging
+import coloredlogs
+# 创建日志记录器
+logger = logging.getLogger(__name__)
 from .get_signature import get_signature, get_key, get_secret
 from .api import getme
 
@@ -23,15 +27,8 @@ def send_user_message(user_token='',bot_token='',text='{\"type\":\"text\",\"text
     Returns:
         requests.models.Response: 返回响应
     """
-    
-    import logging
-    import coloredlogs
-    # 创建日志记录器
-    logger = logging.getLogger(__name__)
-
     # 配置 coloredlogs
     coloredlogs.install(level=log_level, logger=logger)
-    
     url = f"https://web.fanbook.cn/api/a1/api/message/clientSend/{guild_id}/{channel_id}" # 社区ID/频道ID
     auth=user_token
     

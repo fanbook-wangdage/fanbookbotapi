@@ -14,13 +14,13 @@ print(fanbookbotapi.getme('123').text)
 
 ## bot api
 
-- getme(token='bot token')
+- getme(token)
 
 ```
 获取bot的信息
 ```
 
-- sendmessage(token='',chatid=0,biaoti="标题",ik=[[{"text":"下一页","callback_data":"{\"type\":\"next\",\"index\":2,\"msg\":\"114514\"}"}]],text='文本',biaoticolor='ffe4e4',type="card",shade=['ff764a','ffb39aff'],backgroundColor='ddeeff00',getjson=False) -> requests.models.Response|str:
+- sendmessage()
 
 ```
 发送消息
@@ -53,6 +53,19 @@ Returns:
     requests.models.Response: requests请求对象
     {"ok":true,"result":{"id":510639729457618944,"guild_id":0,"type":"private","channel_type":3}}
     返回中，id代表频道id
+```
+
+- bot_websocket()
+
+```
+fanbook bot websocket接口
+Args:
+    token (str): bot token
+    onOpen (function): ws连接成功回调
+    onMessage (function): ws收到消息回调
+    onError (function): ws错误回调
+    onClose (function): ws关闭回调
+    log_level (str, optional): 日志等级. Defaults to "DEBUG".
 ```
 
 ## 用户api
