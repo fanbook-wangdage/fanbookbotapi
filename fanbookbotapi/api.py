@@ -32,7 +32,7 @@ def sendmessage(token='',chatid=0,biaoti="标题",add_Key=False,ik=[[{"text":"�
     Returns:
         requests.models.Response|str: requests请求对象|编码完成的json
     """
-    1/0
+    # 1/0
     if len(shade)==1:
         color1,color2=shade[0],shade[0]
     else:
